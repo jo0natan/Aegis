@@ -1,5 +1,5 @@
 # Aegis Codex Engine — Comprehensive Operations Manual
-### `Jonatan Villela - jonatan.villela@gmail.com`
+### `Jonatan Villela - jonatan.villela@gmail.com` <!-- --- ``` Custos vigilans, mundum munit ``` --- -->
 
 ---
 
