@@ -4,7 +4,7 @@
 ## Ecosystem Overview
 This repository consolidates advanced active reverse engineering, runtime hardening, heap memory control, and corporate telemetry evasion studies conducted within the Analyst's laboratory. The absolute objective of this framework is to achieve complete sovereignty over the browser execution runtime environment and its corresponding hardware infrastructure (**GrapheneOS running on a Google Pixel 7 Pro equipped with a Titan M2 security chip**).
 
-The architecture was designed under the strict guidelines of the **CIA Triad** and **Defense-in-Depth**, forcing invasive client-side applications and trackers (such as the Datadog RUM injected by the Claude AI web interface) to fail silently at the edge of our perimeter, while total control over physical user interactions and DOM integrity remains under our explicit custody.
+The architecture was designed under the strict guidelines of the **CIA Triad** and **Defense-in-Depth**, forcing invasive client-side applications and trackers (such as the telemetry providers RUM injected by web interface hostile applications) to fail silently at the edge of our perimeter, while total control over physical user interactions and DOM integrity remains under our explicit custody.
 
 ---
 ## Security Architecture (Defense-in-Depth)
@@ -13,7 +13,7 @@ The framework operates surgically by splitting the security perimeter into multi
 
 ```
 
-[ Physical / Firmware Layer ] ---> Titan M2 (Custom Keys / Yellow State) │ [ Network / DNS Layer ] ---> Edge Perimeter Block (*.datadoghq.com) │ [ Runtime / DOM Layer ] ---> Aegis DOM Firewall (Monkey Patching) │ [ Biometric / UX Layer ] ---> Cryptographic Proxy (isTrusted: true)
+[ Physical / Firmware Layer ] ---> Titan M2 (Custom Keys / Yellow State) │ [ Network / DNS Layer ] ---> Edge Perimeter Block (*.telmetryprovider.com) │ [ Runtime / DOM Layer ] ---> Aegis DOM Firewall (Monkey Patching) │ [ Biometric / UX Layer ] ---> Cryptographic Proxy (isTrusted: true)
 
 ```
 1. **Physical & Firmware Layer (Titan M2 Sovereignty):** Preservation of hardware ownership by locking the bootloader with user-provided custom cryptographic attestation keys. The intentional failure of corporate attestation checks (`MEETS_STRONG_INTEGRITY`) mitigates **NFA (Near-Field Attacks)** and silent relay exploitation vectors targeting the NFC chip via Direct Memory Access (DMA).
@@ -257,6 +257,6 @@ The effectiveness of the core logic was validated through stress-testing under p
 
 -   **DOM Flood Suppression:** Blocked **over 4,000,000 unauthorized mutation attempts** spawned by the host script within a 5-minute window, stabilizing the target tree structure.
     
--   **Telemetry Containment:** Diagnostic sockets routed towards telemetry collection endpoints (`*.browser-intake-datadoghq.com`) successfully contained.
+-   **Telemetry Containment:** Diagnostic sockets routed towards telemetry collection endpoints (`*.browser-intake-xxxx.com`) successfully contained.
     
 -   **Heap Stability:** The automated calls to `AegisMemoryPurgeCore` suppressed memory fragmentation, maintaining consistent engine parsing times without triggering browser tab drops.
